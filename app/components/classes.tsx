@@ -1,0 +1,88 @@
+import { ClassTile } from '@/app/page';
+
+export const classes: ClassTile[] = [
+    {
+        courseCode: 'MS-103',
+        creditHours: 3,
+        courseName: 'Calculus & Analytical Geometry',
+        startTime: 690,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sana Moiz',
+        teacherStatus: 'Lecturer',
+        day: 'mon',
+        classLink: 'https://teams.microsoft.com/meet/43300871594182?p=G4JveNi3szPn7Mzwqs'
+    },
+    {
+        courseCode: 'SE-103L',
+        creditHours: 1,
+        courseName: 'Object Oriented Programming Lab',
+        startTime: 690,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sana Waseem',
+        teacherStatus: 'Lecturer',
+        day: 'wed',
+        classLink: 'https://teams.microsoft.com/meet/4456373825150?p=CILbyaOBsINfsvHGdH'
+    },
+    {
+        courseCode: 'SE-106T',
+        creditHours: 3,
+        courseName: 'Introduction To Software Engineering Theory',
+        startTime: 870,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sarwat Fawwad',
+        teacherStatus: 'Lecturer',
+        day: 'wed',
+        classLink: 'https://teams.microsoft.com/meet/49970201252186?p=7lUPHOBiAYoUFjJvik'
+    },
+    {
+        courseCode: 'MS-110T',
+        creditHours: 3,
+        courseName: 'Applied Physics Theory',
+        startTime: 990,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sabeen Akhtar',
+        teacherStatus: 'Lecturer',
+        day: 'wed',
+        classLink: 'https://teams.microsoft.com/meet/44873993321984?p=xMQO8mA4OIDpdXEjD1'
+    },
+    {
+        courseCode: 'MS-110T',
+        creditHours: 3,
+        courseName: 'Applied Physics Theory',
+        startTime: 1470,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sabeen Akhtar',
+        teacherStatus: 'Lecturer',
+        day: 'thu',
+        classLink: 'https://teams.microsoft.com/meet/42937548930198?p=uuBqKq0QE9JtNx8jFk'
+    },
+    {
+        courseCode: 'SE-103T',
+        creditHours: 3,
+        courseName: 'Object Oriented Programming Theory',
+        startTime: 690,
+        place: 'MS Teams',
+        logoName: 'ST',
+        teacherName: 'Sir Tauseef Mubeen',
+        teacherStatus: 'Lecturer',
+        day: 'thu',
+        classLink: 'https://teams.microsoft.com/meet/45836850298090?p=aPrj1qVJq2aJ07b7uW'
+    },
+    {
+        courseCode: 'MS-103',
+        creditHours: 3,
+        courseName: 'Calculus & Analytical Geometry',
+        startTime: 510,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sana Moiz',
+        teacherStatus: 'Lecturer',
+        day: 'fri',
+        classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB'
+    },
+]
