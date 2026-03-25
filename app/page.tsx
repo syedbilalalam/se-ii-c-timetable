@@ -22,6 +22,7 @@ export interface ClassTile {
     creditHours: number;
     courseName: string;
     startTime: number;  // in minutes
+    duration: number;   // in minutes
     place: string;
     logoName: string;
     teacherName: string;

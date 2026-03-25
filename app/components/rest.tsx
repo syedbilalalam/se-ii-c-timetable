@@ -18,7 +18,7 @@ export default function RestClasses() {
     useEffect(() => {
         const currentTime = getCurrentTimeInMins.current();
         const currentDay = getCurrentDay.current();
-        setRestClasses(classes.filter(data => (data.day !== currentDay || ((data.startTime + 60) <= currentTime))));
+        setRestClasses(classes.filter(data => (data.day !== currentDay || ((data.startTime + (data.duration - 10)) <= currentTime))));
     }, [getCurrentDay, getCurrentTimeInMins]);
 
     return (

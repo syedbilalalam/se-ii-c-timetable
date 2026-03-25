@@ -18,7 +18,7 @@ export default function Upcommings() {
     useEffect(() => {
         const currentTime = getCurrentTimeInMins.current();
         const currentDay = getCurrentDay.current();
-        setUpcommings(classes.filter(data => (data.day === currentDay && ((data.startTime + 60) > currentTime))));
+        setUpcommings(classes.filter(data => (data.day === currentDay && ((data.startTime + (data.duration - 10)) > currentTime))));
     }, [getCurrentDay, getCurrentTimeInMins]);
 
     return (
