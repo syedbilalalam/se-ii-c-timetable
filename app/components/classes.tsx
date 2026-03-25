@@ -97,7 +97,7 @@ export const classes: ClassTile[] = [
         creditHours: 3,
         courseName: 'Pakistan Studies And Aligarh Movement',
         startTime: 870,
-        duration: 60,
+        duration: 180,
         place: 'MS Teams',
         logoName: 'FN',
         teacherName: 'Miss Farah Naz',
