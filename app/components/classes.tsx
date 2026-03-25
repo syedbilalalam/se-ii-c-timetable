@@ -27,7 +27,7 @@ export const classes: ClassTile[] = [
     },
     {
         courseCode: 'SE-106T',
-        creditHours: 3,
+        creditHours: 2,
         courseName: 'Introduction To Software Engineering Theory',
         startTime: 870,
         place: 'MS Teams',
