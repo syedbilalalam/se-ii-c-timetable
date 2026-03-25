@@ -1,7 +1,7 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
 import { ClassTile } from '@/app/page';
 import { classes } from '@/app/components/classes';
+import { useState, useEffect, useRef } from 'react';
 import ListClasses from '@/app/components/list_classes';
 
 export default function Upcommings() {

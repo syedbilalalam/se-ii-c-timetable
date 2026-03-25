@@ -1,5 +1,5 @@
 'use client';
-import { DAY_NAME, ClassTile } from '@/app/page';
+import { ClassTile } from '@/app/page';
 import { classes } from '@/app/components/classes';
 import { useState, useEffect, useRef } from 'react';
 import ListClasses from '@/app/components/list_classes';
@@ -16,11 +16,9 @@ export default function RestClasses() {
     });
 
     useEffect(() => {
-        console.log('we are here');
         const currentTime = getCurrentTimeInMins.current();
         const currentDay = getCurrentDay.current();
         setRestClasses(classes.filter(data => (data.day !== currentDay || ((data.startTime + 60) <= currentTime))));
-        console.log(restClasses);
     }, [getCurrentDay, getCurrentTimeInMins]);
 
     return (
