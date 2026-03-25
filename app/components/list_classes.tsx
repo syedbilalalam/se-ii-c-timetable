@@ -2,11 +2,24 @@
 import Link from 'next/link'
 import { useRef } from 'react';
 import { DAY_NAME, ClassTile } from '@/app/page';
+import { Flip, toast } from 'react-toastify';
 
 interface ListClassesProps {
     classes: ClassTile[];
     disabled?: boolean;
 }
+
+const toastParams = {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    transition: Flip,
+} as const;
 
 export default function ListClasses({ classes, disabled }: ListClassesProps) {
 
@@ -21,10 +34,18 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
         classes.map((data, index) => (
 
             <Link key={index} href={data.classLink}
-            className={`tile taccent ${data.day}`}
-            data-day={DAY_NAME[data.day]} target='_blank'
-            aria-disabled={disabled ? true : false}
-            onClick={(e) => { if (disabled) e.preventDefault()}}
+                className={`tile taccent ${data.day}`}
+                data-day={DAY_NAME[data.day]} target='_blank'
+                aria-disabled={disabled ? true : false}
+                onClick={(e) => {
+                    if (disabled) {
+                        e.preventDefault();
+                        toast(
+                            'Tap an ongoing class to join the meeting',
+                            toastParams
+                        );
+                    }
+                }}
             >
                 <div className="tile-inner">
                     <div className="tile-header">

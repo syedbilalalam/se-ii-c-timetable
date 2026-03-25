@@ -1,5 +1,6 @@
 import Upcommings from "@/app/components/upcommings";
 import RestClasses from "@/app/components/rest";
+import { ToastContainer } from 'react-toastify'
 
 export enum DAY_NAME {
     'mon' = 'Monday',
@@ -33,7 +34,9 @@ export interface ClassTile {
 export default function Home() {
     return (
         <>
+            <ToastContainer />
             <header>
+
                 <div className="header-left">
                     <h1>Class SE2C<span>Schedule</span></h1>
                     {/* <p>Spring 2026 &nbsp;·&nbsp; Academic Timetable</p> */}
