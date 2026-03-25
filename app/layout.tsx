@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToastContainer } from 'react-toastify'
 import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/assets/global.css';
@@ -35,6 +36,7 @@ export default function RootLayout({
             </head>
             <body className="min-h-full flex flex-col">
                 <Analytics />
+                <ToastContainer />
                 {children}
             </body>
         </html>

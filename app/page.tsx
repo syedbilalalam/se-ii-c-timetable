@@ -1,6 +1,5 @@
-import Upcommings from "@/app/components/upcommings";
 import RestClasses from "@/app/components/rest";
-import { ToastContainer } from 'react-toastify'
+import Upcommings from "@/app/components/upcommings";
 
 export enum DAY_NAME {
     'mon' = 'Monday',
@@ -34,7 +33,6 @@ export interface ClassTile {
 export default function Home() {
     return (
         <>
-            <ToastContainer />
             <header>
 
                 <div className="header-left">
