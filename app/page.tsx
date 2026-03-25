@@ -66,6 +66,13 @@ export default function Home() {
                 </svg>
                 <span><strong>Alert:</strong> Class timings shown here may not be 100% accurate. If you spot a mistake, report that.</span>
             </div>
+            <div className="notice-banner">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10" />
+                    <text x="12" y="16" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="serif">i</text>
+                </svg>
+                <span><strong>Info:</strong> You always need to be signed in to your Teams app with your SSUET Microsoft Account to join online meetings.</span>
+            </div>
 
             <main>
                 <div className="grid" id="grid">

@@ -593,7 +593,6 @@ footer {
     grid-column: 1 / -1;
 }
 
-
 @media (max-width: 640px) {
     .notice-banner {
         margin: 16px 20px 0;
