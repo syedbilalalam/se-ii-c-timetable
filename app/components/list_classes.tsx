@@ -1,12 +1,14 @@
 'use client';
+import Link from 'next/link'
 import { useRef } from 'react';
 import { DAY_NAME, ClassTile } from '@/app/page';
 
 interface ListClassesProps {
     classes: ClassTile[];
+    disabled?: boolean;
 }
 
-export default function ListClasses({ classes }: ListClassesProps) {
+export default function ListClasses({ classes, disabled }: ListClassesProps) {
 
     const minsToTime = useRef((mins: number) => {
         const hours = Math.floor(mins / 60) % 12 || 12;
@@ -18,7 +20,12 @@ export default function ListClasses({ classes }: ListClassesProps) {
     return (
         classes.map((data, index) => (
 
-            <a key={index} href={data.classLink} className={`tile taccent ${data.day}`} data-day={DAY_NAME[data.day]} target='_blank'>
+            <Link key={index} href={data.classLink}
+            className={`tile taccent ${data.day}`}
+            data-day={DAY_NAME[data.day]} target='_blank'
+            aria-disabled={disabled ? true : false}
+            onClick={(e) => { if (disabled) e.preventDefault()}}
+            >
                 <div className="tile-inner">
                     <div className="tile-header">
                         <span className="subject-code">{data.courseCode}</span>
@@ -50,7 +57,7 @@ export default function ListClasses({ classes }: ListClassesProps) {
                         <div className="day-dot"></div>{DAY_NAME[data.day]}
                     </div>
                 </div>
-            </a>
+            </Link>
         ))
     );
 }

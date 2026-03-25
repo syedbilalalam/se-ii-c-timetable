@@ -24,6 +24,6 @@ export default function RestClasses() {
     }, [getCurrentDay, getCurrentTimeInMins]);
 
     return (
-        <ListClasses classes={restClasses} />
+        <ListClasses classes={restClasses} disabled={true} />
     );
 }
