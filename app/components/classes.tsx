@@ -91,7 +91,7 @@ export const classes: ClassTile[] = [
         courseName: 'Pakistan Studies And Aligarh Movement',
         startTime: 870,
         place: 'MS Teams',
-        logoName: 'MS',
+        logoName: 'FN',
         teacherName: 'Miss Farah Naz',
         teacherStatus: 'Lecturer',
         day: 'sat',
