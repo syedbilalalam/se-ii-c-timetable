@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/assets/global.css';
 
@@ -32,7 +33,10 @@ export default function RootLayout({
                     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
                     rel="stylesheet" />
             </head>
-            <body className="min-h-full flex flex-col">{children}</body>
+            <body className="min-h-full flex flex-col">
+                <Analytics />
+                {children}
+            </body>
         </html>
     );
 }
