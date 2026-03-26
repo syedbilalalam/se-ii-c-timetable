@@ -80,6 +80,19 @@ export const classes: ClassTile[] = [
         classLink: 'https://teams.microsoft.com/meet/42937548930198?p=uuBqKq0QE9JtNx8jFk'
     },
     {
+        courseCode: 'SE-106L',
+        creditHours: 1,
+        courseName: 'Introduction To Software Engineering Lab',
+        startTime: 870,
+        duration: 180,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Miss Sarwat Fawwad',
+        teacherStatus: 'Lecturer',
+        day: 'thu',
+        classLink: 'https://teams.microsoft.com/meet/45997636462488?p=Xp7wg6N6YCQM7Dzfg5'
+    },
+    {
         courseCode: 'MS-103',
         creditHours: 3,
         courseName: 'Calculus & Analytical Geometry',
