@@ -70,7 +70,7 @@ export const classes: ClassTile[] = [
         courseCode: 'MS-110T',
         creditHours: 3,
         courseName: 'Applied Physics Theory',
-        startTime: 1470,
+        startTime: 750,
         duration: 120,
         place: 'MS Teams',
         logoName: 'MS',
@@ -117,5 +117,5 @@ export const classes: ClassTile[] = [
         teacherStatus: 'Lecturer',
         day: 'sat',
         classLink: 'https://teams.microsoft.com/meet/46874061505440?p=AoUZNimpUYsFJtg862'
-    },
+    }
 ]
