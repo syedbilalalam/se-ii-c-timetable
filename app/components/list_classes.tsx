@@ -33,18 +33,19 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
     return (
         classes.map((data, index) => (
 
-            <Link key={index} href={data.classLink}
+            <div key={index}
                 className={`tile taccent ${data.day}`}
-                data-day={DAY_NAME[data.day]} target='_blank'
+                data-day={DAY_NAME[data.day]}
                 aria-disabled={disabled ? true : false}
-                onClick={(e) => {
+                onClick={() => {
                     if (disabled) {
-                        e.preventDefault();
                         toast(
                             'Tap an ongoing class to join the meeting',
                             toastParams
                         );
+                        return;
                     }
+                    window.open(data.classLink, '_blank', 'noopener,noreferrer');
                 }}
             >
                 <div className="tile-inner">
@@ -78,7 +79,7 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
                         <div className="day-dot"></div>{DAY_NAME[data.day]}
                     </div>
                 </div>
-            </Link>
+            </div>
         ))
     );
 }
