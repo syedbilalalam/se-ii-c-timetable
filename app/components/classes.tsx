@@ -116,8 +116,7 @@ export const classes: ClassTile[] = [
         teacherName: 'Sir Tauseef Mubeen',
         teacherStatus: 'Lecturer',
         day: 'fri',
-        classLink: '',
-        notAvailable: 'Meeting will be scheduled soon'
+        classLink: 'https://teams.microsoft.com/meet/44673453311759?p=W84Jmbl9DzhEbFxQYB'
     },
     {
         courseCode: 'HS-103',
