@@ -106,6 +106,20 @@ export const classes: ClassTile[] = [
         classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB'
     },
     {
+        courseCode: 'SE-103T',
+        creditHours: 3,
+        courseName: 'Object Oriented Programming Theory',
+        startTime: 630,
+        duration: 120,
+        place: 'MS Teams',
+        logoName: 'ST',
+        teacherName: 'Sir Tauseef Mubeen',
+        teacherStatus: 'Lecturer',
+        day: 'fri',
+        classLink: '',
+        notAvailable: 'Meeting will be scheduled soon'
+    },
+    {
         courseCode: 'HS-103',
         creditHours: 3,
         courseName: 'Pakistan Studies And Aligarh Movement',
