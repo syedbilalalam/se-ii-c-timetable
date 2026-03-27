@@ -45,6 +45,10 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
                         );
                         return;
                     }
+                    if (data.notAvailable) {
+                        toast(data.notAvailable, toastParams);
+                        return;
+                    }
                     window.open(data.classLink, '_blank', 'noopener,noreferrer');
                 }}
             >
