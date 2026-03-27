@@ -29,6 +29,7 @@ export interface ClassTile {
     teacherStatus: string;
     day: Day;
     classLink: string;
+    notAvailable?: string;
 }
 
 export default function Home() {
