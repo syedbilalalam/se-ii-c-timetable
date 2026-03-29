@@ -2,6 +2,20 @@ import { ClassTile } from '@/app/page';
 
 export const classes: ClassTile[] = [
     {
+        courseCode: 'MS-110L',
+        creditHours: 1,
+        courseName: 'Applied Physics Lab',
+        startTime: 510,
+        duration: 180,
+        place: 'MS Teams',
+        logoName: 'MS',
+        teacherName: 'Sir Shoaib Ahmed',
+        teacherStatus: 'Lecturer',
+        day: 'mon',
+        classLink: '',
+        notAvailable: "Meeting isn't scheduled yet"
+    },
+    {
         courseCode: 'MS-103',
         creditHours: 3,
         courseName: 'Calculus & Analytical Geometry',
