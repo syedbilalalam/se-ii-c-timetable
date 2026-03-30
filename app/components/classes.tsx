@@ -8,7 +8,7 @@ export const classes: ClassTile[] = [
         startTime: 510,
         duration: 180,
         place: 'MS Teams',
-        logoName: 'MS',
+        logoName: 'SA',
         teacherName: 'Sir Shoaib Ahmed',
         teacherStatus: 'Lecturer',
         day: 'mon',
