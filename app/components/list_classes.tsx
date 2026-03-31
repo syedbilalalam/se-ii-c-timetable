@@ -40,7 +40,7 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
                 onClick={() => {
                     if (disabled) {
                         toast(
-                            'Tap an ongoing class to join the meeting',
+                            'Class has not started yet',
                             toastParams
                         );
                         return;

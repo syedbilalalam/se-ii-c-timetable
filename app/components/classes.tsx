@@ -7,13 +7,13 @@ export const classes: ClassTile[] = [
         courseName: 'Applied Physics Lab',
         startTime: 510,
         duration: 180,
-        place: 'MS Teams',
+        place: 'GT-7',
         logoName: 'SA',
         teacherName: 'Sir Shoaib Ahmed',
         teacherStatus: 'Lecturer',
         day: 'mon',
         classLink: '',
-        notAvailable: "Meeting isn't scheduled yet"
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'MS-103',
@@ -21,12 +21,13 @@ export const classes: ClassTile[] = [
         courseName: 'Calculus & Analytical Geometry',
         startTime: 690,
         duration: 60,
-        place: 'MS Teams',
+        place: 'CG-6',
         logoName: 'MS',
         teacherName: 'Miss Sana Moiz',
         teacherStatus: 'Lecturer',
         day: 'mon',
-        classLink: 'https://teams.microsoft.com/meet/43300871594182?p=G4JveNi3szPn7Mzwqs'
+        classLink: 'https://teams.microsoft.com/meet/43300871594182?p=G4JveNi3szPn7Mzwqs',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'SE-103L',
@@ -34,12 +35,13 @@ export const classes: ClassTile[] = [
         courseName: 'Object Oriented Programming Lab',
         startTime: 690,
         duration: 180,
-        place: 'MS Teams',
+        place: 'CG-5',
         logoName: 'MS',
         teacherName: 'Miss Sana Waseem',
         teacherStatus: 'Lecturer',
         day: 'wed',
-        classLink: 'https://teams.microsoft.com/meet/4456373825150?p=CILbyaOBsINfsvHGdH'
+        classLink: 'https://teams.microsoft.com/meet/4456373825150?p=CILbyaOBsINfsvHGdH',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'SE-106T',
@@ -47,12 +49,13 @@ export const classes: ClassTile[] = [
         courseName: 'Introduction To Software Engineering Theory',
         startTime: 870,
         duration: 120,
-        place: 'MS Teams',
+        place: 'CG-2',
         logoName: 'MS',
         teacherName: 'Miss Sarwat Fawwad',
         teacherStatus: 'Lecturer',
         day: 'wed',
-        classLink: 'https://teams.microsoft.com/meet/49970201252186?p=7lUPHOBiAYoUFjJvik'
+        classLink: 'https://teams.microsoft.com/meet/49970201252186?p=7lUPHOBiAYoUFjJvik',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'MS-110T',
@@ -60,12 +63,13 @@ export const classes: ClassTile[] = [
         courseName: 'Applied Physics Theory',
         startTime: 990,
         duration: 60,
-        place: 'MS Teams',
+        place: 'CG-2',
         logoName: 'MS',
         teacherName: 'Miss Sabeen Akhtar',
         teacherStatus: 'Lecturer',
         day: 'wed',
-        classLink: 'https://teams.microsoft.com/meet/44873993321984?p=xMQO8mA4OIDpdXEjD1'
+        classLink: 'https://teams.microsoft.com/meet/44873993321984?p=xMQO8mA4OIDpdXEjD1',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'SE-103T',
@@ -73,12 +77,13 @@ export const classes: ClassTile[] = [
         courseName: 'Object Oriented Programming Theory',
         startTime: 690,
         duration: 60,
-        place: 'MS Teams',
+        place: 'CG-6',
         logoName: 'ST',
         teacherName: 'Sir Tauseef Mubeen',
         teacherStatus: 'Lecturer',
         day: 'thu',
-        classLink: 'https://teams.microsoft.com/meet/45836850298090?p=aPrj1qVJq2aJ07b7uW'
+        classLink: 'https://teams.microsoft.com/meet/45836850298090?p=aPrj1qVJq2aJ07b7uW',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'MS-110T',
@@ -86,12 +91,13 @@ export const classes: ClassTile[] = [
         courseName: 'Applied Physics Theory',
         startTime: 750,
         duration: 120,
-        place: 'MS Teams',
+        place: 'CG-6',
         logoName: 'MS',
         teacherName: 'Miss Sabeen Akhtar',
         teacherStatus: 'Lecturer',
         day: 'thu',
-        classLink: 'https://teams.microsoft.com/meet/42937548930198?p=uuBqKq0QE9JtNx8jFk'
+        classLink: 'https://teams.microsoft.com/meet/42937548930198?p=uuBqKq0QE9JtNx8jFk',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'SE-106L',
@@ -99,12 +105,13 @@ export const classes: ClassTile[] = [
         courseName: 'Introduction To Software Engineering Lab',
         startTime: 870,
         duration: 180,
-        place: 'MS Teams',
+        place: 'CG-5',
         logoName: 'MS',
         teacherName: 'Miss Sarwat Fawwad',
         teacherStatus: 'Lecturer',
         day: 'thu',
-        classLink: 'https://teams.microsoft.com/meet/45997636462488?p=Xp7wg6N6YCQM7Dzfg5'
+        classLink: 'https://teams.microsoft.com/meet/45997636462488?p=Xp7wg6N6YCQM7Dzfg5',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'MS-103',
@@ -112,12 +119,13 @@ export const classes: ClassTile[] = [
         courseName: 'Calculus & Analytical Geometry',
         startTime: 510,
         duration: 120,
-        place: 'MS Teams',
+        place: 'CG-6',
         logoName: 'MS',
         teacherName: 'Miss Sana Moiz',
         teacherStatus: 'Lecturer',
         day: 'fri',
-        classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB'
+        classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'SE-103T',
@@ -125,12 +133,13 @@ export const classes: ClassTile[] = [
         courseName: 'Object Oriented Programming Theory',
         startTime: 630,
         duration: 120,
-        place: 'MS Teams',
+        place: 'CG-6',
         logoName: 'ST',
         teacherName: 'Sir Tauseef Mubeen',
         teacherStatus: 'Lecturer',
         day: 'fri',
-        classLink: 'https://teams.microsoft.com/meet/44673453311759?p=W84Jmbl9DzhEbFxQYB'
+        classLink: 'https://teams.microsoft.com/meet/44673453311759?p=W84Jmbl9DzhEbFxQYB',
+        notAvailable: 'This is an in-person class'
     },
     {
         courseCode: 'HS-103',
@@ -138,7 +147,7 @@ export const classes: ClassTile[] = [
         courseName: 'Pakistan Studies And Aligarh Movement',
         startTime: 870,
         duration: 180,
-        place: 'MS Teams',
+        place: 'FG-1 / MS Teams',
         logoName: 'FN',
         teacherName: 'Miss Farah Naz',
         teacherStatus: 'Lecturer',
