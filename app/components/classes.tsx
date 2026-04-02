@@ -119,13 +119,12 @@ export const classes: ClassTile[] = [
         courseName: 'Calculus & Analytical Geometry',
         startTime: 510,
         duration: 120,
-        place: 'CG-6',
+        place: 'MS Teams',
         logoName: 'MS',
         teacherName: 'Miss Sana Moiz',
         teacherStatus: 'Lecturer',
         day: 'fri',
-        classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB',
-        notAvailable: 'This is an in-person class'
+        classLink: 'https://teams.microsoft.com/meet/41124712826591?p=ghmm27iGjOKIz5suKB'
     },
     {
         courseCode: 'SE-103T',
@@ -133,13 +132,12 @@ export const classes: ClassTile[] = [
         courseName: 'Object Oriented Programming Theory',
         startTime: 630,
         duration: 120,
-        place: 'CG-6',
+        place: 'MS Teams',
         logoName: 'ST',
         teacherName: 'Sir Tauseef Mubeen',
         teacherStatus: 'Lecturer',
         day: 'fri',
-        classLink: 'https://teams.microsoft.com/meet/44673453311759?p=W84Jmbl9DzhEbFxQYB',
-        notAvailable: 'This is an in-person class'
+        classLink: 'https://teams.microsoft.com/meet/44673453311759?p=W84Jmbl9DzhEbFxQYB'
     },
     {
         courseCode: 'HS-103',
