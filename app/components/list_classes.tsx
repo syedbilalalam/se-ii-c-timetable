@@ -39,7 +39,7 @@ export default function ListClasses({ classes, disabled }: ListClassesProps) {
                 onClick={() => {
                     if (disabled) {
                         toast(
-                            'Class has not started yet',
+                            `This class occurs on ${DAY_NAME[data.day]}`,
                             toastParams
                         );
                         return;
