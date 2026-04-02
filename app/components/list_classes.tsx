@@ -1,8 +1,7 @@
 'use client';
-import Link from 'next/link'
 import { useRef } from 'react';
-import { DAY_NAME, ClassTile } from '@/app/page';
 import { Flip, toast } from 'react-toastify';
+import { DAY_NAME, ClassTile } from '@/app/page';
 
 interface ListClassesProps {
     classes: ClassTile[];
