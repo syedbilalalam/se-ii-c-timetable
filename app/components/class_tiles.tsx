@@ -18,8 +18,10 @@ export default function ClassTiles() {
             const startTime = Date.now();
 
             // Preparing URL
-            const url = new URL("https://x40tmdktedsfrmyw.public.blob.vercel-storage.com/ctiles.json");
-            url.searchParams.set('v', SCHEDULE_VERSION);
+            const protocol = 'https:';
+            const host = 'x40tmdktedsfrmyw.public.blob.vercel-storage.com';
+            const pathname = `/ctiles_v${SCHEDULE_VERSION}.json`;
+            const url = `${protocol}//${host}${pathname}`;
             
             // Requesting data
             const response = await fetch(url);
