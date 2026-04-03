@@ -14,7 +14,7 @@ export default function ClassTiles() {
     const [classData, setClassData] = useState<ClassTile[]>([]);
 
     useEffect(() => {
-        (async () => {
+        const loadData = async () => {
             const startTime = Date.now();
 
             // Preparing URL
@@ -37,7 +37,20 @@ export default function ClassTiles() {
             else {
                 setClassData(parsedData);
             }
-        })();
+        };
+
+        const dataLoader = async () => {
+            try {
+                await loadData();
+            }
+            catch {
+                setTimeout(async () => {
+                    await dataLoader();
+                }, 5000);
+            }
+        };
+
+        dataLoader();
     }, []);
 
     return (
