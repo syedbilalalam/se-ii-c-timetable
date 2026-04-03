@@ -42,7 +42,7 @@ body::before {
     opacity: 0.6;
 }
 .page-top-space {
-    height: 80px;
+    height: 100px;
 }
 header {
     position: fixed;
