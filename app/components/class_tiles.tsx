@@ -32,6 +32,9 @@ export default function ClassTiles() {
                     setClassData(parsedData);
                 }, MIN_WAITING_TIME - timeTaken);
             }
+            else {
+                setClassData(parsedData);
+            }
         })();
     }, []);
 
