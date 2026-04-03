@@ -7,6 +7,7 @@ import RestClasses from '@/app/components/rest';
 import Upcommings from '@/app/components/upcommings';
 
 const MIN_WAITING_TIME = 2000; // Milliseconds
+const SCHEDULE_VERSION = '2';
 
 export default function ClassTiles() {
 
@@ -15,8 +16,16 @@ export default function ClassTiles() {
     useEffect(() => {
         (async () => {
             const startTime = Date.now();
-            const response = await fetch("https://x40tmdktedsfrmyw.public.blob.vercel-storage.com/ctiles.json");
+
+            // Preparing URL
+            const url = new URL("https://x40tmdktedsfrmyw.public.blob.vercel-storage.com/ctiles.json");
+            url.searchParams.set('v', SCHEDULE_VERSION);
+            
+            // Requesting data
+            const response = await fetch(url);
             const parsedData = await response.json();
+
+            // Rendering content
             const timeTaken = Date.now() - startTime;
             if (timeTaken < MIN_WAITING_TIME) {
                 setTimeout(() => {
