@@ -57,7 +57,7 @@ export default function Home() {
             </div> */}
 
             <div className="page-top-space"></div>
-            <div className="notice-banner">
+            {/* <div className="notice-banner">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
@@ -65,7 +65,7 @@ export default function Home() {
                     <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
                 <span><strong>Alert:</strong> Class timings shown here may not be 100% accurate. If you spot a mistake, report that.</span>
-            </div>
+            </div> */}
             <div className="notice-banner">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="12" r="10" />
