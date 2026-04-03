@@ -1,5 +1,4 @@
-import RestClasses from "@/app/components/rest";
-import Upcommings from "@/app/components/upcommings";
+import ClassTiles from "@/app/components/class_tiles";
 
 export enum DAY_NAME {
     'mon' = 'Monday',
@@ -57,6 +56,7 @@ export default function Home() {
                 <button className="day-pill">Sat</button>
             </div> */}
 
+            <div className="page-top-space"></div>
             <div className="notice-banner">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -76,8 +76,7 @@ export default function Home() {
 
             <main>
                 <div className="grid" id="grid">
-                    <Upcommings />
-                    <RestClasses />
+                    <ClassTiles />
                 </div>
             </main>
 

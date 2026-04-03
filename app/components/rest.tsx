@@ -1,10 +1,13 @@
 'use client';
 import { ClassTile } from '@/app/page';
-import { classes } from '@/app/components/classes';
 import { useState, useEffect, useRef } from 'react';
 import ListClasses from '@/app/components/list_classes';
 
-export default function RestClasses() {
+interface RestClassesProps {
+    classes: ClassTile[];
+}
+
+export default function RestClasses({ classes }: RestClassesProps) {
     const [restClasses, setRestClasses] = useState<ClassTile[]>([]);
 
     const getCurrentDay = useRef(() => {

@@ -1,10 +1,13 @@
 'use client';
 import { ClassTile } from '@/app/page';
-import { classes } from '@/app/components/classes';
 import { useState, useEffect, useRef } from 'react';
 import ListClasses from '@/app/components/list_classes';
 
-export default function Upcommings() {
+interface UpcommingsProps {
+    classes: ClassTile[];
+}
+
+export default function Upcommings({ classes }: UpcommingsProps) {
     const [upcommings, setUpcommings] = useState<ClassTile[]>([]);
 
     const getCurrentDay = useRef(() => {
