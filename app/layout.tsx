@@ -30,6 +30,15 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
         >
             <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                {/* Android/Chrome browser bar color */}
+                <meta name="theme-color" content="#f0c040" />
+
+                {/* iOS PWA status bar */}
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
                 <link
                     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
                     rel="stylesheet" />
