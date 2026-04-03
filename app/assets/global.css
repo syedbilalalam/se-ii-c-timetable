@@ -570,7 +570,7 @@ footer {
     --tile-accent: var(--accent-1);
 }
 
-.taccent.tue {
+.taccent.tue, .taccent.sun {
     --tile-accent: var(--accent-2);
 }
 

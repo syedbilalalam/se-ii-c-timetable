@@ -100,6 +100,9 @@ export default function Home() {
                     <div className="legend-item">
                         <div className="legend-dot sat"></div>Saturday
                     </div>
+                    <div className="legend-item">
+                        <div className="legend-dot tue"></div>Sunday
+                    </div>
                 </div>
                 <a href="https://github.com/syedbilalalam/se-ii-c-timetable" target="_blank" className="github-link"
                     title="View on GitHub">
