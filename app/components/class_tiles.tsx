@@ -7,7 +7,7 @@ import RestClasses from '@/app/components/rest';
 import Upcommings from '@/app/components/upcommings';
 
 const MIN_WAITING_TIME = 2000; // Milliseconds
-const SCHEDULE_VERSION = '7';
+const SCHEDULE_VERSION = '8';
 
 export default function ClassTiles() {
 
