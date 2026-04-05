@@ -6,7 +6,8 @@ export enum DAY_NAME {
     'wed' = 'Wednesday',
     'thu' = 'Thursday',
     'fri' = 'Friday',
-    'sat' = 'Saturday'
+    'sat' = 'Saturday',
+    'sun' = 'Sunday'
 }
 
 export type Day = 'mon'
@@ -14,7 +15,8 @@ export type Day = 'mon'
     | 'wed'
     | 'thu'
     | 'fri'
-    | 'sat';
+    | 'sat'
+    | 'sun';
 
 export interface ClassTile {
     courseCode: string;
