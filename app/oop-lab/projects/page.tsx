@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'SE2C | Projects',
+    title: 'SE2C Projects',
 }
 
 const FORM_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSdBd6caVwCcXkHg2wAn3ko2xoku5EkHhp6vfs-54tixK5jdmA/viewform?usp=dialog';
