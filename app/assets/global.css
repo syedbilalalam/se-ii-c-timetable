@@ -21,6 +21,10 @@
     margin: 0;
     padding: 0;
 }
+.no-link-style {
+    /* color: #fff; */
+    text-decoration: none;
+}
 
 body {
     background: var(--bg);
@@ -69,6 +73,7 @@ header {
     /* line-height: 0.95; */
     /* letter-spacing: -0.03em; */
     text-transform: uppercase;
+    color: #fff;
 }
 
 .header-left h1 span {

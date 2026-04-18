@@ -13,9 +13,9 @@ export default function Home() {
         <>
             <header>
 
-                <div className="header-left">
+                <a href="/oop-lab/projects" className="header-left no-link-style">
                     <h1>Class SE2C<span>PROJECTS</span></h1>
-                </div>
+                </a>
                 <div className="header-right">
                     <span className="semester-badge">Semester 2</span>
                 </div>
