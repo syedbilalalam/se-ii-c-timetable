@@ -1,0 +1,37 @@
+.project.tile .tile-inner{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.project.tile .project-time-stamp {
+    display: flex;
+    justify-content: space-between;
+}
+.project.tile .team-members {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+.project.tile .instructor-avatar {
+    height: 38px;
+    width: 38px;
+}
+.project.tile .instructor-name strong {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.project.tile .instructor-name {
+    font-size: 11px;
+}
+.oop-project-footer {
+    display: flex;
+    width: 100%;
+}
+.oop-project-footer .footer-legend{
+    flex-grow: 1;
+    width: 50%;
+    font-size: 12px;
+    color: var(--muted);
+}

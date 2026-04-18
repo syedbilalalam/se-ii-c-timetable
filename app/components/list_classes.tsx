@@ -8,7 +8,7 @@ interface ListClassesProps {
     disabled?: boolean;
 }
 
-const toastParams = {
+export const toastParams = {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,

@@ -9,6 +9,7 @@
     --accent-4: #a78bfa;
     --accent-5: #34d399;
     --accent-6: #fb923c;
+    --accent-7: #fdba74;
     --text: #f0ede8;
     --muted: #888;
 }
@@ -570,7 +571,10 @@ footer {
     --tile-accent: var(--accent-1);
 }
 
-.taccent.tue, .taccent.sun {
+.taccent.tue {
+    --tile-accent: var(--accent-7);
+}
+.taccent.sun {
     --tile-accent: var(--accent-2);
 }
 
@@ -595,7 +599,7 @@ footer {
 }
 
 .legend-dot.tue {
-    background: var(--accent-2);
+    background: var(--accent-7);
 }
 
 .legend-dot.wed {
