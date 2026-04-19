@@ -36,8 +36,10 @@ interface ProjectTile {
     timeStamp: number;
 }
 
+const PMS_VERSION = '5';
 const MIN_WAITING_TIME = 2000; // Milliseconds
 const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
 export default function ProjectTiles() {
 
     const [projectTiles, setProjectTiles] = useState<ProjectTile[]>([]);
@@ -106,11 +108,10 @@ export default function ProjectTiles() {
         const loadMembers = async () => {
             const startTime = Date.now();
             // Preparing URL
-            const VERSION = '4';
             const protocol = 'https:';
             const host = 'x40tmdktedsfrmyw.public.blob.vercel-storage.com';
             const refererId = 'AKfycbwrjy65lG4RlmluatPmcAZuUJs0NutTwIlHz5XY4rCJv7t0X6Gl1HlyuLH5mb1Hd5k-'
-            const pathname = `/pms_v${VERSION}.json`;
+            const pathname = `/pms_v${PMS_VERSION}.json`;
             const url = `${protocol}//${host}${pathname}`;
 
             // Requesting data
@@ -145,7 +146,7 @@ export default function ProjectTiles() {
 
                 {
                     await Promise.all([rawDataset, members]);
-                    
+
                 }
                 const tiles: ProjectTile[] = [];
                 for (let i = 1; i < rawDataset.length; i++) {
