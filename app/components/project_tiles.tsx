@@ -228,7 +228,7 @@ export default function ProjectTiles() {
                                     const memberData = data.member[key as keyof ProjectMembers];
                                     const memberStatus = index === 0 ? 'Group Leader' : 'Member';
                                     if (!memberData || !memberData.rollNo) return;
-                                    console.log(memberData);
+
                                     return (
                                         <div key={index} className="instructor-row">
                                             <div className="instructor-avatar">{toInitials(memberData.name!)}</div>
