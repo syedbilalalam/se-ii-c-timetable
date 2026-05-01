@@ -5,6 +5,7 @@ import { ClassTile } from '@/app/page';
 import { useEffect, useState } from 'react';
 import RestClasses from '@/app/components/rest';
 import Upcommings from '@/app/components/upcommings';
+import { useGlobalCtx } from '@/app/components/global_context';
 
 const MIN_WAITING_TIME = 2000; // Milliseconds
 const SCHEDULE_VERSION = '11';
@@ -12,6 +13,7 @@ const SCHEDULE_VERSION = '11';
 export default function ClassTiles() {
 
     const [classData, setClassData] = useState<ClassTile[]>([]);
+    const { pageLoaded } = useGlobalCtx();
 
     useEffect(() => {
         const loadData = async () => {
@@ -52,6 +54,13 @@ export default function ClassTiles() {
 
         dataLoader();
     }, []);
+
+    useEffect(() => {
+        if (classData.length) {
+            pageLoaded();
+            console.log('loading was complted');
+        }
+    }, [classData]);
 
     return (
         classData.length ? (

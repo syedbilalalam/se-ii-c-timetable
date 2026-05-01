@@ -1,6 +1,7 @@
-import ProjectTiles from '@/app/components/project_tiles';
-import type { Metadata } from 'next'
 import Link from 'next/link';
+import type { Metadata } from 'next'
+import Navbar from '@/app/components/navigation';
+import ProjectTiles from '@/app/components/project_tiles';
 
 export const metadata: Metadata = {
     title: 'SE2C Projects',
@@ -11,18 +12,6 @@ const FORM_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSdBd6caVwCcXkHg2wAn3
 export default function Home() {
     return (
         <>
-            <header>
-
-                <a href="/oop-lab/projects" className="header-left no-link-style">
-                    <h1>Class SE2C<span>PROJECTS</span></h1>
-                </a>
-                <div className="header-right">
-                    <span className="semester-badge">Semester 2</span>
-                </div>
-            </header>
-
-            <div className="page-top-space"></div>
-
             <main>
                 <div className="grid" id="grid">
                     <ProjectTiles />

@@ -2,6 +2,7 @@
 import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { toastParams } from '@/app/components/list_classes';
+import { useGlobalCtx } from '@/app/components/global_context';
 import { fromUnix, toInitials } from '@/app/components/project_tiles_components';
 // Stylesheet
 import '@/app/assets/projects.css'
@@ -43,6 +44,7 @@ const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export default function ProjectTiles() {
 
     const [projectTiles, setProjectTiles] = useState<ProjectTile[]>([]);
+    const { pageLoaded } = useGlobalCtx();
 
     useEffect(() => {
         const toUnix = (isoStr: string) => {
@@ -195,6 +197,11 @@ export default function ProjectTiles() {
         dataLoader();
     }, []);
 
+    useEffect(() => {
+        if (projectTiles.length) {
+            pageLoaded();
+        }
+    }, [projectTiles]);
 
     return (
         <>

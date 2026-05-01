@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { ToastContainer } from 'react-toastify'
 import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from '@/app/components/global_context';
 import '@/app/assets/global.css';
+import Navbar from "./components/navigation";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -46,7 +48,11 @@ export default function RootLayout({
             <body className="min-h-full flex flex-col">
                 <Analytics />
                 <ToastContainer />
-                {children}
+                
+                <Navbar title="SCHEDULE"/>
+                <ThemeProvider>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -1,4 +1,5 @@
-import ClassTiles from "@/app/components/class_tiles";
+import Navbar from '@/app/components/navigation';
+import ClassTiles from '@/app/components/class_tiles';
 
 export enum DAY_NAME {
     'mon' = 'Monday',
@@ -36,29 +37,7 @@ export interface ClassTile {
 export default function Home() {
     return (
         <>
-            <header>
 
-                <div className="header-left">
-                    <h1>Class SE2C<span>Schedule</span></h1>
-                    {/* <p>Spring 2026 &nbsp;·&nbsp; Academic Timetable</p> */}
-                </div>
-                <div className="header-right">
-                    <span className="semester-badge">Semester 2</span>
-                    {/* <span className="total-count">9 Subjects &nbsp;·&nbsp; 5 Days/Week</span> */}
-                </div>
-            </header>
-
-            {/* <div className="days-nav">
-                <button className="day-pill active">All Days</button>
-                <button className="day-pill">Mon</button>
-                <button className="day-pill">Tue</button>
-                <button className="day-pill">Wed</button>
-                <button className="day-pill">Thu</button>
-                <button className="day-pill">Fri</button>
-                <button className="day-pill">Sat</button>
-            </div> */}
-
-            <div className="page-top-space"></div>
             {/* <div className="notice-banner">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
