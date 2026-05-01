@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { toastParams } from '@/app/components/list_classes';
 import { useGlobalCtx } from '@/app/components/global_context';
-import { fromUnix, toInitials } from '@/app/components/project_tiles_components';
+import { fromUnix, moveElement, toInitials } from '@/app/components/project_tiles_components';
 // Stylesheet
 import '@/app/assets/projects.css'
 
@@ -14,7 +14,9 @@ enum PROJECT_TILE {
     MEMBER_II,
     MEMBER_III,
     MEMBER_IV,
-    DESCRIPTION
+    DESCRIPTION,
+    PRJ_NO,
+    STATUS
 }
 
 interface Member {
@@ -35,6 +37,7 @@ interface ProjectTile {
     description: string;
     active: boolean;
     timeStamp: number;
+    status: 'APPROVED' | 'NOT_APPROVED';
 }
 
 const PMS_VERSION = '5';
@@ -150,6 +153,16 @@ export default function ProjectTiles() {
                     await Promise.all([rawDataset, members]);
 
                 }
+
+                // Order update
+                const cpyRawDataset = [...rawDataset];
+                for (let i = 0; i < cpyRawDataset.length; i++) {
+                    const prjNo = parseInt(cpyRawDataset[i][PROJECT_TILE.PRJ_NO]);
+                    if (prjNo && !Number.isNaN(prjNo)) {
+                        moveElement(rawDataset, i, prjNo);
+                    }
+                }
+
                 const tiles: ProjectTile[] = [];
                 for (let i = 1; i < rawDataset.length; i++) {
                     const rawData = rawDataset[i];
@@ -180,7 +193,8 @@ export default function ProjectTiles() {
                         },
                         description: rawData[PROJECT_TILE.DESCRIPTION],
                         active: true,
-                        timeStamp: toUnix(rawData[PROJECT_TILE.TIME_STAMP])
+                        timeStamp: toUnix(rawData[PROJECT_TILE.TIME_STAMP]),
+                        status: rawData[PROJECT_TILE.STATUS] as ProjectTile['status']
                     });
 
                     setProjectTiles(tiles);
@@ -204,22 +218,37 @@ export default function ProjectTiles() {
     }, [projectTiles]);
 
     return (
-        <>
-
-            {projectTiles.length ? (
-                projectTiles.map((data, index) => (
+        projectTiles.length ? (
+            projectTiles.map((data, index) => {
+                const approved = data.status === 'APPROVED';
+                return (
 
                     <div key={index}
                         className={`project tile taccent ${DAYS[index % 6]}`}
                         onClick={() => {
-
-                            toast('This is an active project', toastParams);
+                            if (approved) {
+                                toast(
+                                    (<div>
+                                        <strong>Project Id: PRJ-{index + 1}</strong>
+                                        <p>This is an approved project</p>
+                                    </div>), toastParams);
+                            }
+                            else {
+                                toast('This project is not verified yet', toastParams);
+                            }
                         }}
                     >
                         <div className="tile-inner">
                             <div className="tile-header">
                                 <span className="subject-code">PRJ-{index + 1}</span>
-                                <span className="credit-badge">{data.active ? 'Active' : 'Inactive'}</span>
+                                <div className="credit-badges">
+                                    <span className="credit-badge">{data.active && approved ? 'Active' : 'Inactive'}</span>
+                                    {approved ? (
+                                        <span className="credit-badge status">Approved ✓</span>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </div>
                             </div>
                             <div className="subject-name">{data.name}</div>
                             <div className="meta-row">
@@ -261,10 +290,9 @@ export default function ProjectTiles() {
 
                         </div>
                     </div >
-                ))) : (
-                <div className="loader"></div>
-            )
-            }
-        </>
+                )
+            })) : (
+            <div className="loader"></div>
+        )
     );
 }

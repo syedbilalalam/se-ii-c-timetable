@@ -25,6 +25,18 @@
 .project.tile .instructor-name {
     font-size: 11px;
 }
+.project.tile .credit-badges {
+    display: flex;
+    gap: 5px;
+}
+.project.tile .credit-badge{
+    outline: 2px solid var(--tile-accent);
+}
+.project.tile .credit-badges .credit-badge.status {
+    background-color: transparent;
+    outline: 2px solid var(--tile-accent);
+    color: var(--tile-accent);
+}
 .oop-project-footer {
     display: flex;
     width: 100%;

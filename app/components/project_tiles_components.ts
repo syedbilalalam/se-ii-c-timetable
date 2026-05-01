@@ -17,3 +17,9 @@ export function toInitials(str: string) {
         .map(word => word[0].toUpperCase())
         .join('');
 }
+
+export function moveElement(arr: string[], fromIndex: number, toIndex: number) {
+    const element = arr.splice(fromIndex, 1)[0]; // remove element
+    arr.splice(toIndex, 0, element);             // insert at new index
+    return arr;
+}
