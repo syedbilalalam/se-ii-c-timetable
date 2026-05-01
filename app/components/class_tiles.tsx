@@ -58,7 +58,6 @@ export default function ClassTiles() {
     useEffect(() => {
         if (classData.length) {
             pageLoaded();
-            console.log('loading was complted');
         }
     }, [classData]);
 
