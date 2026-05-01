@@ -145,19 +145,21 @@ header {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 7px 16px;
-    border-radius: 100px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.day-pill:hover, .day-pill.focused {
+.day-pill:hover {
     border-color: var(--accent-1);
 }
 
+.day-pill.focused,
 .day-pill.active {
     background: var(--accent-1);
     border-color: var(--accent-1);
     color: #000;
+    cursor: default;
 }
 
 main {

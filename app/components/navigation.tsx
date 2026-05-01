@@ -26,7 +26,7 @@ export default function Navbar(props: NavbarProps) {
         if (!loaded) {
             setLoadbarStatus('loading');
         }
-        else if (loadbarStatus === 'loading'){
+        else if (loadbarStatus === 'loading') {
             setPageTitle(PAGE_NAMES[pageIndex]);
             setLoadbarStatus('loaded');
         }
@@ -76,9 +76,10 @@ export default function Navbar(props: NavbarProps) {
             <div className="days-nav">
                 <button
                     className={`day-pill ${loaded && pageIndex === 0 ? 'active' :
-                            pageIndex === 0 ? 'focused' : ''
+                        pageIndex === 0 ? 'focused' : ''
                         }`}
                     onClick={() => {
+                        if (pageIndex === 0) return;
                         setPageIndex(0);
                         setLoadedFlag(false);
                         router.push('/');
@@ -86,9 +87,10 @@ export default function Navbar(props: NavbarProps) {
                 >Timetable</button>
                 <button
                     className={`day-pill ${loaded && pageIndex === 1 ? 'active' :
-                            pageIndex === 1 ? 'focused' : ''
+                        pageIndex === 1 ? 'focused' : ''
                         }`}
                     onClick={() => {
+                        if (pageIndex === 1) return;
                         setPageIndex(1);
                         setLoadedFlag(false);
                         router.push('/oop-lab/projects');
