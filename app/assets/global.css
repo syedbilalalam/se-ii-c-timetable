@@ -701,6 +701,32 @@ footer {
     margin-left: -2px;
 }
 
+/* Scroll bar */
+/* width of the scrollbar */
+body::-webkit-scrollbar {
+  width: 8px;   /* vertical */
+  height: 8px;  /* horizontal */
+}
+
+/* the track (background) */
+body::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 4px;
+}
+
+/* the draggable thumb */
+body::-webkit-scrollbar-thumb {
+  background: var(--accent-1);
+  border-radius: 4px;
+}
+
+/* thumb on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-7);
+}
+
+
+
 @keyframes l24 {
     100% {
         transform: rotate(1turn)
