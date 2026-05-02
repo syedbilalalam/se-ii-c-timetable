@@ -229,7 +229,7 @@ export default function ProjectTiles() {
                             if (approved) {
                                 toast(
                                     (<div>
-                                        <strong>Project Id: PRJ-{index + 1}</strong>
+                                        <strong>Project Id: PRJ-C{index + 1}</strong>
                                         <p>This is an approved project</p>
                                     </div>), toastParams);
                             }
