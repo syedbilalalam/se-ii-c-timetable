@@ -8,7 +8,16 @@ interface NavbarProps {
     title: string;
 }
 
-const PAGE_NAMES = ['SCHEDULE', 'PROJECTS'];
+enum PAGES {
+    TIME_TABLE = 0,
+    OOP_PROJECTS = 1,
+    PHYSICS_PROJECTS = 2
+}
+enum PAGE_TYPE {
+    SCHEDULE = 0,
+    PROJECTS = 1
+}
+const PAGE_TYPES = ['SCHEDULE', 'PROJECTS'];
 
 export default function Navbar(props: NavbarProps) {
     let globalCtx = useGlobalCtx();
@@ -27,7 +36,7 @@ export default function Navbar(props: NavbarProps) {
             setLoadbarStatus('loading');
         }
         else if (loadbarStatus === 'loading') {
-            setPageTitle(PAGE_NAMES[pageIndex]);
+            setPageTitle(PAGE_TYPES[pageIndex]);
             setLoadbarStatus('loaded');
         }
         if (loaded && loadbarStatus === 'loaded') {
@@ -40,12 +49,16 @@ export default function Navbar(props: NavbarProps) {
     useEffect(() => {
         switch (window.location.pathname.toLowerCase()) {
             case '/':
-                setPageIndex(0);
-                setPageTitle(PAGE_NAMES[0]);
+                setPageIndex(PAGE_TYPE.SCHEDULE);
+                setPageTitle(PAGE_TYPES[PAGES.TIME_TABLE]);
                 break;
             case '/oop-lab/projects':
-                setPageIndex(1);
-                setPageTitle(PAGE_NAMES[1]);
+                setPageIndex(PAGE_TYPE.PROJECTS);
+                setPageTitle(PAGE_TYPES[PAGES.OOP_PROJECTS]);
+                break;
+            case '/physics-lab/projects':
+                setPageIndex(PAGE_TYPE.PROJECTS);
+                setPageTitle(PAGE_TYPES[PAGES.PHYSICS_PROJECTS]);
                 break;
         }
         globalCtx.pageLoaded = pageLoaded;
@@ -75,25 +88,36 @@ export default function Navbar(props: NavbarProps) {
             <div className="page-top-space"></div>
             <div className="days-nav">
                 <button
-                    className={`day-pill ${loaded && pageIndex === 0 ? 'active' :
-                        pageIndex === 0 ? 'focused' : ''
+                    className={`day-pill ${loaded && pageIndex === PAGES.TIME_TABLE ? 'active' :
+                        pageIndex === PAGES.TIME_TABLE ? 'focused' : ''
                         }`}
                     onClick={() => {
-                        if (pageIndex === 0) return;
+                        if (pageIndex === PAGES.TIME_TABLE) return;
                         setPageIndex(0);
                         setLoadedFlag(false);
                         router.push('/');
                     }}
                 >Timetable</button>
                 <button
-                    className={`day-pill ${loaded && pageIndex === 1 ? 'active' :
-                        pageIndex === 1 ? 'focused' : ''
+                    className={`day-pill ${loaded && pageIndex === PAGES.OOP_PROJECTS ? 'active' :
+                        pageIndex === PAGES.OOP_PROJECTS ? 'focused' : ''
                         }`}
                     onClick={() => {
-                        if (pageIndex === 1) return;
+                        if (pageIndex === PAGES.OOP_PROJECTS) return;
                         setPageIndex(1);
                         setLoadedFlag(false);
                         router.push('/oop-lab/projects');
+                    }}
+                >OOP Lab Projects</button>
+                <button
+                    className={`day-pill ${loaded && pageIndex === PAGES.PHYSICS_PROJECTS ? 'active' :
+                        pageIndex === PAGES.PHYSICS_PROJECTS ? 'focused' : ''
+                        }`}
+                    onClick={() => {
+                        if (pageIndex === PAGES.PHYSICS_PROJECTS) return;
+                        setPageIndex(1);
+                        setLoadedFlag(false);
+                        router.push('/physics-lab/projects');
                     }}
                 >OOP Lab Projects</button>
             </div>
