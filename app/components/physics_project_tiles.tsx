@@ -47,6 +47,7 @@ const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export default function ProjectTiles() {
 
     const [projectTiles, setProjectTiles] = useState<ProjectTile[]>([]);
+    const [loaded, setLoadedState] = useState(false);
     const { pageLoaded } = useGlobalCtx();
 
     useEffect(() => {
@@ -88,12 +89,11 @@ export default function ProjectTiles() {
         }
         const loadData = async () => {
             try {
-
                 const startTime = Date.now();
                 // Preparing URL
                 const protocol = 'https:';
                 const host = 'script.google.com';
-                const refererId = 'AKfycbwrjy65lG4RlmluatPmcAZuUJs0NutTwIlHz5XY4rCJv7t0X6Gl1HlyuLH5mb1Hd5k-'
+                const refererId = 'AKfycbyIQO3g_9RBjmzmBqjyZrKOfTjzrOQzO4gGr24IQ1gvkw3H6x6LU76RM6Gygb95QRCAZQ'
                 const pathname = `/macros/s/${refererId}/exec`;
                 const url = `${protocol}//${host}${pathname}`;
 
@@ -207,19 +207,16 @@ export default function ProjectTiles() {
                     timeStamp: toUnix(rawData[PROJECT_TILE.TIME_STAMP]),
                     status: rawData[PROJECT_TILE.STATUS] as ProjectTile['status']
                 });
-
-                setProjectTiles(tiles);
+                
             }
+        console.log('readed here');
+        setLoadedState(true);
+        setProjectTiles(tiles);
+        pageLoaded();
     }
 
     dataLoader();
 }, []);
-
-useEffect(() => {
-    if (projectTiles.length) {
-        pageLoaded();
-    }
-}, [projectTiles]);
 
 return (
     projectTiles.length ? (
@@ -295,7 +292,10 @@ return (
                     </div>
                 </div >
             )
-        })) : (
+        }
+    )) : loaded ? (
+        <p>No records yet</p>
+    ) : (
         <div className="loader"></div>
     )
 );

@@ -4,10 +4,6 @@ import { useRouter } from 'next/navigation';
 import { useGlobalCtx } from './global_context';
 import { useEffect, useRef, useState } from 'react';
 
-interface NavbarProps {
-    title: string;
-}
-
 enum PAGES {
     TIME_TABLE = 0,
     OOP_PROJECTS = 1,
@@ -19,7 +15,7 @@ enum PAGE_TYPE {
 }
 const PAGE_TYPES = ['SCHEDULE', 'PROJECTS'];
 
-export default function Navbar(props: NavbarProps) {
+export default function Navbar() {
     let globalCtx = useGlobalCtx();
     const router = useRouter();
     const [pageTitle, setPageTitle] = useState('');
@@ -36,7 +32,10 @@ export default function Navbar(props: NavbarProps) {
             setLoadbarStatus('loading');
         }
         else if (loadbarStatus === 'loading') {
-            setPageTitle(PAGE_TYPES[pageIndex]);
+            setPageTitle(pageIndex == PAGES.TIME_TABLE
+                ? PAGE_TYPES[PAGE_TYPE.SCHEDULE]
+                : PAGE_TYPE[PAGE_TYPE.PROJECTS]
+            );
             setLoadbarStatus('loaded');
         }
         if (loaded && loadbarStatus === 'loaded') {
@@ -49,16 +48,16 @@ export default function Navbar(props: NavbarProps) {
     useEffect(() => {
         switch (window.location.pathname.toLowerCase()) {
             case '/':
-                setPageIndex(PAGE_TYPE.SCHEDULE);
-                setPageTitle(PAGE_TYPES[PAGES.TIME_TABLE]);
+                setPageIndex(PAGES.TIME_TABLE);
+                setPageTitle(PAGE_TYPES[PAGE_TYPE.SCHEDULE]);
                 break;
             case '/oop-lab/projects':
-                setPageIndex(PAGE_TYPE.PROJECTS);
-                setPageTitle(PAGE_TYPES[PAGES.OOP_PROJECTS]);
+                setPageIndex(PAGES.OOP_PROJECTS);
+                setPageTitle(PAGE_TYPES[PAGE_TYPE.PROJECTS]);
                 break;
             case '/physics-lab/projects':
-                setPageIndex(PAGE_TYPE.PROJECTS);
-                setPageTitle(PAGE_TYPES[PAGES.PHYSICS_PROJECTS]);
+                setPageIndex(PAGES.PHYSICS_PROJECTS);
+                setPageTitle(PAGE_TYPES[PAGE_TYPE.PROJECTS]);
                 break;
         }
         globalCtx.pageLoaded = pageLoaded;
@@ -93,7 +92,7 @@ export default function Navbar(props: NavbarProps) {
                         }`}
                     onClick={() => {
                         if (pageIndex === PAGES.TIME_TABLE) return;
-                        setPageIndex(0);
+                        setPageIndex(PAGES.TIME_TABLE);
                         setLoadedFlag(false);
                         router.push('/');
                     }}
@@ -104,7 +103,7 @@ export default function Navbar(props: NavbarProps) {
                         }`}
                     onClick={() => {
                         if (pageIndex === PAGES.OOP_PROJECTS) return;
-                        setPageIndex(1);
+                        setPageIndex(PAGES.OOP_PROJECTS);
                         setLoadedFlag(false);
                         router.push('/oop-lab/projects');
                     }}
@@ -115,11 +114,11 @@ export default function Navbar(props: NavbarProps) {
                         }`}
                     onClick={() => {
                         if (pageIndex === PAGES.PHYSICS_PROJECTS) return;
-                        setPageIndex(1);
+                        setPageIndex(PAGES.PHYSICS_PROJECTS);
                         setLoadedFlag(false);
                         router.push('/physics-lab/projects');
                     }}
-                >OOP Lab Projects</button>
+                >Physics Lab Projects</button>
             </div>
         </>
     );

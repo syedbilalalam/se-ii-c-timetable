@@ -49,7 +49,7 @@ export default function RootLayout({
                 <Analytics />
                 <ToastContainer />
                 
-                <Navbar title="SCHEDULE"/>
+                <Navbar />
                 <ThemeProvider>
                     {children}
                 </ThemeProvider>

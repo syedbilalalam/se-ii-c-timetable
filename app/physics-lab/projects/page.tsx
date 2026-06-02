@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next'
-import ProjectTiles from '@/app/components/project_tiles';
+import ProjectTiles from '@/app/components/physics_project_tiles';
 
 export const metadata: Metadata = {
     title: 'SE2C Projects',
 }
 
-const FORM_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSdBd6caVwCcXkHg2wAn3ko2xoku5EkHhp6vfs-54tixK5jdmA/viewform?usp=dialog';
+const FORM_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSfyr4wU1FTTJKy_Kpb9yR464T4HW0sOHXahEC43DyCGdUeR5w/viewform?usp=header';
 
 export default function Page() {
     return (
@@ -18,10 +18,11 @@ export default function Page() {
             </main>
 
             <footer className="oop-project-footer">
-                <p className="footer-legend">
-                    Ensure your project is unique before submitting. Use the Google Form button on the right to submit, your data will sync from Google automatically.
-
+                <p className="footer-legend">All data related to students is encrypted at google drive will be removed from this website after lab exams.
                 </p>
+                
+                <p className="footer-legend">
+                    Ensure your project is unique before submitting. Use the Google Form button on the right to submit, your data will sync from Google automatically.</p>
                 <Link href={FORM_LINK} target='_blank' className='github-link'>Google Form</Link>
                 <a href="https://github.com/syedbilalalam/se-ii-c-timetable" target="_blank" className="github-link"
                     title="View on GitHub">
