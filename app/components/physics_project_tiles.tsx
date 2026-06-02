@@ -14,6 +14,7 @@ enum PROJECT_TILE {
     MEMBER_II,
     MEMBER_III,
     MEMBER_IV,
+    MEMBER_V,
     DESCRIPTION,
     PRJ_NO,
     STATUS
@@ -30,6 +31,7 @@ interface ProjectMembers {
     second: Member;
     third?: Member;
     fourth?: Member;
+    fifth?: Member;
 }
 interface ProjectTile {
     name: string;
@@ -182,6 +184,7 @@ export default function ProjectTiles() {
                 const member_ii: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_II]);
                 const member_iii: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_III]);
                 const member_iv: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_IV]);
+                const member_v: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_V]);
 
                 const updateName = (member: Member) => {
                     const { batch, depart, rollNo } = member;
@@ -193,6 +196,7 @@ export default function ProjectTiles() {
                 updateName(member_ii);
                 updateName(member_iii);
                 updateName(member_iv);
+                updateName(member_v);
 
                 tiles.push({
                     name: rawData[PROJECT_TILE.NAME],
@@ -200,7 +204,8 @@ export default function ProjectTiles() {
                         leader: leader_info,
                         second: member_ii,
                         third: member_iii,
-                        fourth: member_iv
+                        fourth: member_iv,
+                        fifth: member_v
                     },
                     description: rawData[PROJECT_TILE.DESCRIPTION],
                     active: true,
