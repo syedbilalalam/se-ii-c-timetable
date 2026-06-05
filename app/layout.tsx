@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ToastContainer } from 'react-toastify'
 import { Analytics } from "@vercel/analytics/next"
@@ -48,11 +49,27 @@ export default function RootLayout({
             <body className="min-h-full flex flex-col">
                 <Analytics />
                 <ToastContainer />
-                
-                <Navbar />
-                <ThemeProvider>
-                    {children}
-                </ThemeProvider>
+
+                <div className="content-container">
+                    <Navbar />
+                    <Image
+                        src="/bg_v01.jpg"
+                        alt="Logo"
+                        height={1472}
+                        width={2616}
+                        style={{
+                            height: "100vh",
+                            width: "100vw",
+                            position: "fixed",
+                            top: 0,
+                            left: 0,
+                            objectFit: "cover"
+                        }}
+                    />
+                    <ThemeProvider>
+                        {children}
+                    </ThemeProvider>
+                </div>
             </body>
         </html>
     );
