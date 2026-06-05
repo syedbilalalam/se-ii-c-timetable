@@ -16,8 +16,8 @@ enum PROJECT_TILE {
     MEMBER_IV,
     MEMBER_V,
     DESCRIPTION,
-    PRJ_NO,
-    STATUS
+    ACTIVE_STATUS,
+    APPROVED_STATUS
 }
 
 interface Member {
@@ -39,7 +39,7 @@ interface ProjectTile {
     description: string;
     active: boolean;
     timeStamp: number;
-    status: 'APPROVED' | 'NOT_APPROVED';
+    approved: boolean;
 }
 
 const PMS_VERSION = '5';
@@ -168,13 +168,13 @@ export default function ProjectTiles() {
             if (typeof members === "undefined") return;
 
             // Order update
-            const cpyRawDataset = [...rawDataset];
-            for (let i = 0; i < cpyRawDataset.length; i++) {
-                const prjNo = parseInt(cpyRawDataset[i][PROJECT_TILE.PRJ_NO]);
-                if (prjNo && !Number.isNaN(prjNo)) {
-                    moveElement(rawDataset, i, prjNo);
-                }
-            }
+            // const cpyRawDataset = [...rawDataset];
+            // for (let i = 0; i < cpyRawDataset.length; i++) {
+            //     const prjNo = parseInt(cpyRawDataset[i][PROJECT_TILE.PRJ_NO]);
+            //     if (prjNo && !Number.isNaN(prjNo)) {
+            //         moveElement(rawDataset, i, prjNo);
+            //     }
+            // }
 
             const tiles: ProjectTile[] = [];
             for (let i = 1; i < rawDataset.length; i++) {
@@ -208,9 +208,9 @@ export default function ProjectTiles() {
                         fifth: member_v
                     },
                     description: rawData[PROJECT_TILE.DESCRIPTION],
-                    active: true,
+                    active: rawData[PROJECT_TILE.ACTIVE_STATUS] == "1",
                     timeStamp: toUnix(rawData[PROJECT_TILE.TIME_STAMP]),
-                    status: rawData[PROJECT_TILE.STATUS] as ProjectTile['status']
+                    approved: rawData[PROJECT_TILE.APPROVED_STATUS] == "1"
                 });
                 
             }
@@ -225,79 +225,84 @@ export default function ProjectTiles() {
 
 return (
     projectTiles.length ? (
-        projectTiles.map((data, index) => {
-            const approved = data.status === 'APPROVED';
-            return (
+        projectTiles.map((data, index) => (
 
-                <div key={index}
-                    className={`project tile taccent ${DAYS[index % 6]}`}
-                    onClick={() => {
-                        if (approved) {
-                            toast(
-                                (<div>
-                                    <strong>Project Id: PRJ-C{index + 1}</strong>
-                                    <p>This is an approved project</p>
-                                </div>), toastParams);
-                        }
-                        else {
-                            toast('This project is not verified yet', toastParams);
-                        }
-                    }}
-                >
-                    <div className="tile-inner">
-                        <div className="tile-header">
-                            <span className="subject-code">PRJ-{index + 1}</span>
-                            <div className="credit-badges">
-                                <span className="credit-badge">{data.active && approved ? 'Active' : 'Inactive'}</span>
-                                {approved ? (
-                                    <span className="credit-badge status">Approved ✓</span>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
-                        </div>
-                        <div className="subject-name">{data.name}</div>
-                        <div className="meta-row">
-                            <div className="meta-chip">
-                                {data.description}
-                            </div>
-                        </div>
-                        <div className="divider"></div>
-                        <div className="meta-row">
-                            <p className="meta-chip">TEAM MEMBERS</p>
-                        </div>
-                        <div className="team-members">
-                            {Object.keys(data.member).map((key, index) => {
-                                const memberData = data.member[key as keyof ProjectMembers];
-                                const memberStatus = index === 0 ? 'Group Leader' : 'Member';
-                                if (!memberData || !memberData.rollNo) return;
+            <div key={index}
+                className={`project tile taccent ${DAYS[index % 6]}`}
+                onClick={() => {
+                    if (data.approved) {
+                        toast(
+                            (<div>
+                                <strong>Project Id: PRJ-C{index + 1}</strong>
+                                <p>This is an approved project</p>
+                            </div>), toastParams);
+                    }
+                    else if (data.active) {
+                        toast(
+                            (<div>
+                                <strong>Project Id: PRJ-C{index + 1}</strong>
+                                <p>This is an active project</p>
+                            </div>), toastParams);
 
-                                return (
-                                    <div key={index} className="instructor-row">
-                                        <div className="instructor-avatar">{toInitials(memberData.name!)}</div>
-                                        <div className="instructor-name"><strong>{memberData.name}</strong>{memberStatus}</div>
-                                    </div>
-                                )
-                            })}
+                    }
+                    else {
+                        toast('This project is not verified yet', toastParams);
+                    }
+                }}
+            >
+                <div className="tile-inner">
+                    <div className="tile-header">
+                        <span className="subject-code">PRJ-{index + 1}</span>
+                        <div className="credit-badges">
+                            <span className="credit-badge">{data.active ? 'Active' : 'Inactive'}</span>
+                            {data.approved ? (
+                                <span className="credit-badge status">Approved ✓</span>
+                            ) : (
+                                <></>
+                            )}
                         </div>
-                        <div className="divider"></div>
-                        <div className="meta-row project-time-stamp">
-                            <div className="meta-chip">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                Uploaded
-                            </div>
-                            <div className="meta-chip">
-                                {fromUnix(data.timeStamp)}
-                            </div>
-                        </div>
-
                     </div>
-                </div >
-            )
-        }
+                    <div className="subject-name">{data.name}</div>
+                    <div className="meta-row">
+                        <div className="meta-chip">
+                            {data.description}
+                        </div>
+                    </div>
+                    <div className="divider"></div>
+                    <div className="meta-row">
+                        <p className="meta-chip">TEAM MEMBERS</p>
+                    </div>
+                    <div className="team-members">
+                        {Object.keys(data.member).map((key, index) => {
+                            const memberData = data.member[key as keyof ProjectMembers];
+                            const memberStatus = index === 0 ? 'Group Leader' : 'Member';
+                            if (!memberData || !memberData.rollNo) return;
+
+                            return (
+                                <div key={index} className="instructor-row">
+                                    <div className="instructor-avatar">{toInitials(memberData.name!)}</div>
+                                    <div className="instructor-name"><strong>{memberData.name}</strong>{memberStatus}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="divider"></div>
+                    <div className="meta-row project-time-stamp">
+                        <div className="meta-chip">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Uploaded
+                        </div>
+                        <div className="meta-chip">
+                            {fromUnix(data.timeStamp)}
+                        </div>
+                    </div>
+
+                </div>
+            </div >
+        )
     )) : loaded ? (
         <p>No records yet</p>
     ) : (
