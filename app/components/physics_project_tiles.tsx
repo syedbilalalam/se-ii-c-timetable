@@ -219,99 +219,98 @@ export default function ProjectTiles() {
                 });
                 
             }
-        console.log('readed here');
-        setLoadedState(true);
-        setProjectTiles(tiles);
-        pageLoaded();
-    }
 
-    dataLoader();
-}, []);
+            setLoadedState(true);
+            setProjectTiles(tiles);
+            pageLoaded();
+        }
+        dataLoader();
+    }, []);
 
-return (
-    projectTiles.length ? (
-        projectTiles.map((data, index) => (
+    return (
+        projectTiles.length ? (
+            projectTiles.map((data, index) => (
 
-            <div key={index}
-                className={`project tile taccent ${DAYS[index % 6]}`}
-                onClick={() => {
-                    if (data.approved) {
-                        toast(
-                            (<div>
-                                <strong>Project Id: PRJ-C{index + 1}</strong>
-                                <p>This is an approved project</p>
-                            </div>), toastParams);
-                    }
-                    else if (data.active) {
-                        toast(
-                            (<div>
-                                <strong>Project Id: PRJ-C{index + 1}</strong>
-                                <p>This is an active project</p>
-                            </div>), toastParams);
+                <div key={index}
+                    className={`project tile taccent ${DAYS[index % 6]}`}
+                    onClick={() => {
+                        if (data.approved) {
+                            toast(
+                                (<div>
+                                    <strong>Project Id: PRJ-C{index + 1}</strong>
+                                    <p>This is an approved project</p>
+                                </div>), toastParams);
+                        }
+                        else if (data.active) {
+                            toast(
+                                (<div>
+                                    <strong>Project Id: PRJ-C{index + 1}</strong>
+                                    <p>This is an active project</p>
+                                </div>), toastParams);
 
-                    }
-                    else {
-                        toast('This project is not verified yet', toastParams);
-                    }
-                }}
-            >
-                <div className="tile-inner">
-                    <div className="tile-header">
-                        <span className="subject-code">PRJ-{index + 1}</span>
-                        <div className="credit-badges">
-                            <span className="credit-badge">{data.active ? 'Active' : 'Inactive'}</span>
-                            {data.approved ? (
-                                <span className="credit-badge status">Approved ✓</span>
-                            ) : (
-                                <></>
-                            )}
+                        }
+                        else {
+                            toast('This project is not verified yet', toastParams);
+                        }
+                    }}
+                >
+                    <div className="tile-inner">
+                        <div className="tile-header">
+                            <span className="subject-code">PRJ-{index + 1}</span>
+                            <div className="credit-badges">
+                                <span className="credit-badge">{data.active ? 'Active' : 'Inactive'}</span>
+                                {data.approved ? (
+                                    <span className="credit-badge status">Approved ✓</span>
+                                ) : (
+                                    <></>
+                                )}
+                            </div>
                         </div>
-                    </div>
-                    <div className="subject-name">{data.name}</div>
-                    <div className="meta-row">
-                        <div className="meta-chip">
-                            {data.description}
+                        <div className="subject-name">{data.name}</div>
+                        <div className="meta-row">
+                            <div className="meta-chip">
+                                {data.description}
+                            </div>
                         </div>
-                    </div>
-                    <div className="divider"></div>
-                    <div className="meta-row">
-                        <p className="meta-chip">TEAM MEMBERS</p>
-                    </div>
-                    <div className="team-members">
-                        {Object.keys(data.member).map((key, index) => {
-                            const memberData = data.member[key as keyof ProjectMembers];
-                            const memberStatus = index === 0 ? 'Group Leader' : 'Member';
-                            if (!memberData || !memberData.rollNo) return;
+                        <div className="divider"></div>
+                        <div className="meta-row">
+                            <p className="meta-chip">TEAM MEMBERS</p>
+                        </div>
+                        <div className="team-members">
+                            {Object.keys(data.member).map((key, index) => {
+                                const memberData = data.member[key as keyof ProjectMembers];
+                                const memberStatus = index === 0 ? 'Group Leader' : 'Member';
+                                if (!memberData || !memberData.rollNo) return;
 
-                            return (
-                                <div key={index} className="instructor-row">
-                                    <div className="instructor-avatar">{toInitials(memberData.name!)}</div>
-                                    <div className="instructor-name"><strong>{memberData.name}</strong>{memberStatus}</div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="divider"></div>
-                    <div className="meta-row project-time-stamp">
-                        <div className="meta-chip">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>
-                            Uploaded
+                                return (
+                                    <div key={index} className="instructor-row">
+                                        <div className="instructor-avatar">{toInitials(memberData.name!)}</div>
+                                        <div className="instructor-name"><strong>{memberData.name}</strong>{memberStatus}</div>
+                                    </div>
+                                )
+                            })}
                         </div>
-                        <div className="meta-chip">
-                            {fromUnix(data.timeStamp)}
+                        <div className="divider"></div>
+                        <div className="meta-row project-time-stamp">
+                            <div className="meta-chip">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                                Uploaded
+                            </div>
+                            <div className="meta-chip">
+                                {fromUnix(data.timeStamp)}
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </div >
+                    </div>
+                </div >
+            )
+        )) : loaded ? (
+            <p>No records yet</p>
+        ) : (
+            <div className="loader"></div>
         )
-    )) : loaded ? (
-        <p>No records yet</p>
-    ) : (
-        <div className="loader"></div>
-    )
-);
+    );
 }
