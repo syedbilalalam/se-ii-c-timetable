@@ -52,11 +52,15 @@ export default function RootLayout({
 
                 <div className="content-container">
                     <Navbar />
-                    <div
+                    <Image
+                        src="/bg_v03.jpg"
+                        alt="Logo"
                         // height={1472}
                         // width={2616}
                         // height={2160}
                         // width={3840}
+                        height={2000}
+                        width={2864}
                         style={{
                             height: "100vh",
                             width: "100vw",
@@ -64,10 +68,9 @@ export default function RootLayout({
                             top: 0,
                             left: 0,
                             objectFit: "cover",
-                            zIndex: -1,
-                            background: "linear-gradient(205deg, #000000, #2e2e2e)"
+                            zIndex: -1
                         }}
-                    ></div>
+                    />
                     <ThemeProvider>
                         {children}
                     </ThemeProvider>
