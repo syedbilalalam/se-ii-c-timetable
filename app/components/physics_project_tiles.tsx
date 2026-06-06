@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { toastParams } from '@/app/components/list_classes';
 import { useGlobalCtx } from '@/app/components/global_context';
-import { fromUnix, moveElement, toInitials } from '@/app/components/project_tiles_components';
+import { fromUnix, toInitials } from '@/app/components/project_tiles_components';
 // Stylesheet
 import '@/app/assets/projects.css'
 
@@ -16,6 +16,7 @@ enum PROJECT_TILE {
     MEMBER_IV,
     MEMBER_V,
     DESCRIPTION,
+    MEMBER_VI,
     ACTIVE_STATUS,
     APPROVED_STATUS
 }
@@ -29,9 +30,10 @@ interface Member {
 interface ProjectMembers {
     leader: Member;
     second: Member;
-    third?: Member;
+    third: Member;
     fourth?: Member;
     fifth?: Member;
+    sixth?: Member;
 }
 interface ProjectTile {
     name: string;
@@ -185,6 +187,7 @@ export default function ProjectTiles() {
                 const member_iii: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_III]);
                 const member_iv: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_IV]);
                 const member_v: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_V]);
+                const member_vi: Member = parseRollNumber(rawData[PROJECT_TILE.MEMBER_VI]);
 
                 const updateName = (member: Member) => {
                     const { batch, depart, rollNo } = member;
@@ -197,6 +200,7 @@ export default function ProjectTiles() {
                 updateName(member_iii);
                 updateName(member_iv);
                 updateName(member_v);
+                updateName(member_vi);
 
                 tiles.push({
                     name: rawData[PROJECT_TILE.NAME],
@@ -205,7 +209,8 @@ export default function ProjectTiles() {
                         second: member_ii,
                         third: member_iii,
                         fourth: member_iv,
-                        fifth: member_v
+                        fifth: member_v,
+                        sixth: member_vi
                     },
                     description: rawData[PROJECT_TILE.DESCRIPTION],
                     active: rawData[PROJECT_TILE.ACTIVE_STATUS] == "1",
