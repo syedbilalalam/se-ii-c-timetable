@@ -67,7 +67,8 @@ export default function RootLayout({
                             position: "fixed",
                             top: 0,
                             left: 0,
-                            objectFit: "cover"
+                            objectFit: "cover",
+                            zIndex: -1
                         }}
                     />
                     <ThemeProvider>
