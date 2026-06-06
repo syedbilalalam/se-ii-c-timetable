@@ -1,7 +1,7 @@
 :root {
     --bg: #0d0d0f;
     --bg-glass: ##0d0d0fba;
-    --surface: #141417;
+    --surface: #14141787;
     --border: rgba(255, 255, 255, 0.07);
     --accent-1: #f0c040;
     --accent-2: #e05a5a;
@@ -137,7 +137,7 @@ header {
 }
 
 .day-pill {
-    background: transparent;
+    background-color: transparent;
     border: 1px solid var(--border);
     color: var(--muted);
     font-family: 'Space Mono', monospace;
@@ -148,6 +148,7 @@ header {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
+    backdrop-filter: blur(15px);
 }
 
 .day-pill:hover {

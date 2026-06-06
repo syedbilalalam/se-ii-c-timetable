@@ -53,10 +53,14 @@ export default function RootLayout({
                 <div className="content-container">
                     <Navbar />
                     <Image
-                        src="/bg_v01.jpg"
+                        src="/bg_v03.jpg"
                         alt="Logo"
-                        height={1472}
-                        width={2616}
+                        // height={1472}
+                        // width={2616}
+                        // height={2160}
+                        // width={3840}
+                        height={2000}
+                        width={2864}
                         style={{
                             height: "100vh",
                             width: "100vw",
