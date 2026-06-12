@@ -1,5 +1,5 @@
-import Navbar from '@/app/components/navigation';
 import ClassTiles from '@/app/components/class_tiles';
+import ProjectTiles from './components/physics_project_tiles';
 
 export enum DAY_NAME {
     'mon' = 'Monday',
@@ -38,26 +38,9 @@ export default function Home() {
     return (
         <>
 
-            {/* <div className="notice-banner">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                    <line x1="12" y1="9" x2="12" y2="13" />
-                    <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                <span><strong>Alert:</strong> Class timings shown here may not be 100% accurate. If you spot a mistake, report that.</span>
-            </div> */}
-            <div className="notice-banner">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                    <text x="12" y="16" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="serif">i</text>
-                </svg>
-                <span><strong>Info:</strong> You always need to be signed in to your Teams app with your SSUET Microsoft Account to join online meetings.</span>
-            </div>
-
-            <main>
+           <main>
                 <div className="grid" id="grid">
-                    <ClassTiles />
+                    <ProjectTiles />
                 </div>
             </main>
 

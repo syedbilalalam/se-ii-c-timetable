@@ -95,11 +95,8 @@ export default function ProjectTiles() {
             try {
                 const startTime = Date.now();
                 // Preparing URL
-                const protocol = 'https:';
-                const host = 'script.google.com';
-                const refererId = 'AKfycbyIQO3g_9RBjmzmBqjyZrKOfTjzrOQzO4gGr24IQ1gvkw3H6x6LU76RM6Gygb95QRCAZQ'
-                const pathname = `/macros/s/${refererId}/exec`;
-                const url = `${protocol}//${host}${pathname}`;
+                const pathname = `/pms.json`;
+                const url = pathname;
 
                 // Requesting data
                 const response = await fetch(url);
@@ -126,13 +123,10 @@ export default function ProjectTiles() {
             try {
                 const startTime = Date.now();
                 // Preparing URL
-                const protocol = 'https:';
-                const host = 'x40tmdktedsfrmyw.public.blob.vercel-storage.com';
-                const pathname = `/pms_v${PMS_VERSION}.json`;
-                const url = `${protocol}//${host}${pathname}`;
+                const pathname = `/pms.json`;
 
                 // Requesting data
-                const response = await fetch(url);
+                const response = await fetch(pathname);
                 const parsedData = await response.json();
 
                 return new Promise<{ [key: string]: string }>((resolve) => {
@@ -165,9 +159,9 @@ export default function ProjectTiles() {
             }
             await Promise.all([tasks.loadData, tasks.loadMembers]); // Loading in parallel
 
-            const rawDataset: string[] = await tasks.loadData;
-            const members = await tasks.loadMembers;
-            if (typeof members === "undefined") return;
+            const rawDataset: string[] = [];
+            const members: {[key: string]: string} = {};
+            // if (typeof members === "undefined") return;
 
             // Order update
             // const cpyRawDataset = [...rawDataset];

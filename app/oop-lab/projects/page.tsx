@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next'
-import Navbar from '@/app/components/navigation';
-import ProjectTiles from '@/app/components/project_tiles';
+import ProjectTiles from '@/app/components/physics_project_tiles';
 
 export const metadata: Metadata = {
     title: 'SE2C Projects',
